@@ -16,7 +16,7 @@ const AddCostForm = ({ db }) => {
     sum: '',
     category: '',
     description: '',
-    date: null
+    date: ''
   });
 
   const handleSubmit = async (e) => {

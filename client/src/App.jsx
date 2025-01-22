@@ -20,23 +20,16 @@ const App = () => {
       </AppBar>
 
       <Container
-        sx={{
-          py: 3,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 3,
-          maxWidth: '800px !important',
-        }}
-      >
-        <Paper elevation={2} sx={{ p: 2 }}>
+        sx={{py: 3,display: 'flex',flexDirection: 'column',gap: 3,maxWidth: '800px !important',}}>
+        <Paper sx={{ p: 2 }}>
           <AddCostForm db={idb} />
         </Paper>
         
-        <Paper elevation={2} sx={{ p: 2 }}>
+        <Paper sx={{ p: 2 }}>
           <CostReport db={idb} />
         </Paper>
         
-        <Paper elevation={2} sx={{ p: 2 }}>
+        <Paper sx={{ p: 2 }}>
           <CostChart db={idb} />
         </Paper>
       </Container>
