@@ -28,7 +28,7 @@ const AddCostForm = ({ db }) => {
           sum: '',
           category: '',
           description: '',
-          date: null
+          date: ''
         });
       } catch (error) {
         console.error('Error adding cost:', error);
