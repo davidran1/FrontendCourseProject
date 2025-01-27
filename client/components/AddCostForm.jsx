@@ -25,12 +25,11 @@ const AddCostForm = ({ db }) => {
           <FormControl required>
             <InputLabel>Category</InputLabel>
             <Select value={cost.category} onChange={(e) => setCost({ ...cost, category: e.target.value })}label="Category">
-              {db.categories.map((category) => (
-                <MenuItem key={category} value={category}> {category}</MenuItem> ))}
+              {db.categories.map((category) => (<MenuItem key={category} value={category}> {category}</MenuItem> ))}
             </Select>
           </FormControl>
           <TextField label="Description" value={cost.description} onChange={(e) => setCost({ ...cost, description: e.target.value })} required/>
-          <TextField type="date" value={cost.date} onChange={(e) => setCost({ ...cost, date: e.target.value })} required/>
+          <TextField label ="Date" type="date" value={cost.date} onChange={(e) => setCost({ ...cost, date: e.target.value })} required/>
           <Button variant="contained" type="submit"> Add Cost</Button>
         </Stack>
       </form>
