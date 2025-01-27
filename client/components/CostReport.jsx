@@ -1,5 +1,5 @@
 // components/CostReport.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Table,
   TableBody,
@@ -9,8 +9,8 @@ import {
   TableRow,
   Typography,
   TextField,
-  Stack
-} from '@mui/material';
+  Stack,
+} from "@mui/material";
 
 const CostReport = ({ db }) => {
   const [costs, setCosts] = useState([]);
@@ -29,22 +29,10 @@ const CostReport = ({ db }) => {
 
   return (
     <>
-      <Typography variant="h5" gutterBottom>
-        Monthly Report
-      </Typography>
+      <Typography variant="h5" gutterBottom> Monthly Report </Typography>
       <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
-        <TextField
-          type="number"
-          label="Year"
-          value={year}
-          onChange={(e) => setYear(Number(e.target.value))}
-        />
-        <TextField
-          type="number"
-          label="Month"
-          value={month}
-          onChange={(e) => setMonth(Number(e.target.value))}
-        />
+        <TextField type="number" label="Year" value={year} onChange={(e) => setYear(Number(e.target.value))}/>
+        <TextField type="number" label="Month" value={month} onChange={(e) => setMonth(Number(e.target.value))}/>
       </Stack>
       <TableContainer>
         <Table>
@@ -53,18 +41,16 @@ const CostReport = ({ db }) => {
               <TableCell>Date</TableCell>
               <TableCell>Category</TableCell>
               <TableCell>Description</TableCell>
-              <TableCell align="right">Sum</TableCell>
+              <TableCell>Sum</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {costs.map((cost) => (
               <TableRow key={cost.id}>
-                <TableCell>
-                  {new Date(cost.date).toLocaleDateString()}
-                </TableCell>
+                <TableCell> {new Date(cost.date).toLocaleDateString()} </TableCell>
                 <TableCell>{cost.category}</TableCell>
                 <TableCell>{cost.description}</TableCell>
-                <TableCell align="right">${cost.sum}</TableCell>
+                <TableCell>{cost.sum}</TableCell>
               </TableRow>
             ))}
           </TableBody>
