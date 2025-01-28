@@ -5,10 +5,12 @@ import { Typography, TextField, Stack } from '@mui/material';
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D'];
 
 const CostChart = ({ db }) => {
-  const [data, setData] = useState([]);
-  const [year, setYear] = useState(null);
-  const [month, setMonth] = useState(null);
+  const [data, setData] = useState([]);//State to save the data for the chart
+  const [year, setYear] = useState(null);//State for the year   
+  const [month, setMonth] = useState(null);//State for the month
 
+
+  //Every time that the db,year or month change, fetch the data for the chart
   useEffect(() => {
     const fetchData = async () => {
       if (db) {

@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import {TextField,Button,FormControl,InputLabel,Select,MenuItem,Stack,Typography} from '@mui/material';
 
 const AddCostForm = ({ db }) => {
-  const [cost, setCost] = useState({sum: '', category: '', description: '', date: ''});
+  const [cost, setCost] = useState({sum: '', category: '', description: '', date: ''});//state to save the cost item
   
+  //This function is called when the form is submitted
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (db) {
       try {
         await db.addCost(cost);
-        setCost({sum: '', category: '', description: '', date: ''});
+        setCost({sum: '', category: '', description: '', date: ''});//after submit the form , clear the form
       } catch (error) {
         console.error('Error adding cost:', error);
       }

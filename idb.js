@@ -1,21 +1,15 @@
-let idb = {};
+let idb = {};//idb object , we will add properties to it to prevent polluting the global scope
 
-idb.categories = [
-    'Food',
-    'Transportation',
-    'Housing',
-    'Entertainment',
-    'Healthcare',
-    'Other'
-];
+idb.categories = ['Food','Transportation','Housing','Entertainment','Healthcare','Other'];//initial categories
 
+//init function to open the indexedDB
 idb.openCostsDB = async function (dbName, dbVersion) {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(dbName, dbVersion);
 
-        request.onerror = () => reject(request.error);
+        request.onerror = () => reject(request.error);//if there is an error reject the promise
         request.onsuccess = () => {
-            idb.db = request.result;
+            idb.db = request.result;//save the db object to the idb object
             idb.db.addCost = function (cost) {
                 return new Promise((resolve, reject) => {
                     const transaction = this.transaction(["costs"], "readwrite");
@@ -62,6 +56,7 @@ idb.openCostsDB = async function (dbName, dbVersion) {
             resolve(idb.db);
         };
 
+        //if the db is being created or upgraded
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
 

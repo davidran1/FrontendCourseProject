@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Typography,TextField,Stack,} from "@mui/material";
 
 const CostReport = ({ db }) => {
-  const [costs, setCosts] = useState([]);
-  const [year, setYear] = useState(null);
-  const [month, setMonth] = useState(null);
+  const [costs, setCosts] = useState([]);//State for cost items table
+  const [year, setYear] = useState(null);//State for the year
+  const [month, setMonth] = useState(null);//State for the month
 
+  //Every time that the db,year or month change, fetch the data for the table
   useEffect(() => {
     const fetchCosts = async () => {
       if (db) {
